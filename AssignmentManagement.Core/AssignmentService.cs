@@ -24,6 +24,9 @@
             }
 
             _assignments.Add(assignment);
+
+            _logger.Log(assignment.Title);
+
             return true;
         }
 

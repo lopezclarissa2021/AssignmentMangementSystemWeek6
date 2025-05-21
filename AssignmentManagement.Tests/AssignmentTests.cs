@@ -35,5 +35,17 @@ namespace AssignmentManagement.Tests
             assignment.MarkComplete();
             Assert.True(assignment.IsCompleted);
         }
+        [Fact]
+        public void Assignment_HasDefaultPriority()
+        {
+            var assignment = new Assignment("Task 1", "Details");
+            Assert.Equal(Priority.Medium, assignment.Priority);
+        }
+        [Fact]
+        public void Assignment_AcceptsHighPriority()
+        {
+            var assignment = new Assignment("Urgent Task", "Do it now", Priority.High);
+            Assert.Equal(Priority.High, assignment.Priority);
+        }
     }
 }
