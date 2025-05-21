@@ -47,5 +47,27 @@ namespace AssignmentManagement.Tests
             var assignment = new Assignment("Urgent Task", "Do it now", Priority.High);
             Assert.Equal(Priority.High, assignment.Priority);
         }
+        [Fact]
+        public void Constructor_ShouldStoreNotes_WhenNotesProvided()
+        {
+            // Arrange
+            string expectedNotes = "Complete before next Monday";
+
+            // Act
+            var assignment = new Assignment("Math Homework", "Chapter 5 problems", Priority.Medium, notes: expectedNotes);
+
+            // Assert
+            Assert.Equal(expectedNotes, assignment.Notes);
+        }
+
+        [Fact]
+        public void Constructor_ShouldDefaultNotesToNull_WhenNotesNotProvided()
+        {
+            // Act
+            var assignment = new Assignment("Math Homework", "Chapter 5 problems", Priority.Medium);
+
+            // Assert
+            Assert.Null(assignment.Notes);
+        }
     }
 }

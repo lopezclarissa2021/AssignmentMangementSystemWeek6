@@ -1,0 +1,27 @@
+Student Name: Clarissa Lopez
+Date Submitted: 05-21-2025
+
+---
+PURPOSE OF CHANGE:
+To add extra content not covered by title and description.
+
+---
+SUMMARY OF CHANGES:
+Added tests to AssignmentTests.cs
+Added property Notes to Assignment.cs
+updated the constructor in Assignmt.cs
+added the notes to display in UI on methods
+
+---
+TDD PROCESS USED:
+I wrote 2 failing tests.
+I then added the notes property and built my project
+then I ran the tersts.
+
+---
+CHALLENGES OR DESIGN DECISIONS:
+I made sure to default to null before anything else so it would not break. 
+
+---
+NEXT STEPS OR RECOMMENDATIONS:
+I am not sure. ( scared face lol)

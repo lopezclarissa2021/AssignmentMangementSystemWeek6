@@ -70,11 +70,16 @@ namespace AssignmentManagement.UI
             var description = Console.ReadLine();
             Console.WriteLine("Enter assignment priority (1=Low, 2=Medium, 3=High): ");
             var priority = (Priority)int.Parse(Console.ReadLine());
-
+            Console.WriteLine("Enter optional notes: (eneter to skip");
+            var notes = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(notes))
+            {
+                notes = null;
+            }
 
             try
             {
-                var assignment = new Assignment(title, description, priority);
+                var assignment = new Assignment(title, description, priority, notes);
                 if (_assignmentService.AddAssignment(assignment))
                 {
                     Console.WriteLine("Assignment added successfully.");
@@ -101,7 +106,7 @@ namespace AssignmentManagement.UI
 
             foreach (var assignment in assignments)
             {
-                Console.WriteLine($"- {assignment.Title}: {assignment.Description}: {assignment.Priority}: (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"- {assignment.Title}: {assignment.Description}: {assignment.Priority}: {assignment.Notes}: (Completed: {assignment.IsCompleted})");
             }
         }
 
@@ -116,7 +121,7 @@ namespace AssignmentManagement.UI
 
             foreach (var assignment in assignments)
             {
-                Console.WriteLine($"- {assignment.Title}: {assignment.Description} (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"- {assignment.Title}: {assignment.Description}: {assignment.Priority}: {assignment.Notes}: (Completed: {assignment.IsCompleted})");
             }
         }
 
@@ -141,7 +146,7 @@ namespace AssignmentManagement.UI
             var assignment = _assignmentService.FindAssignmentByTitle(title);
             if (assignment != null)
             {
-                Console.WriteLine($"Found Assignment: {assignment.Title} - {assignment.Description} (Completed: {assignment.IsCompleted})");
+                Console.WriteLine($"Found Assignment: {assignment.Title} - {assignment.Description} - {assignment.Priority} - {assignment.Notes} - (Completed: {assignment.IsCompleted})");
             }
             else
             {

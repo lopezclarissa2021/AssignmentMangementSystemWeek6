@@ -9,8 +9,9 @@ namespace AssignmentManagement.Core
         public string Description { get; private set; }
         public bool IsCompleted { get; private set; }
         public Priority Priority { get; private set; }
+        public string? Notes { get; private set; }
 
-        public Assignment(string title, string description, Priority priority = Priority.Medium)
+        public Assignment(string title, string description, Priority priority = Priority.Medium, string? notes = null)
         {
             Validate(title, nameof(title));
             Validate(description, nameof(description));
@@ -19,6 +20,7 @@ namespace AssignmentManagement.Core
             Description = description;
             Priority = priority; // Default priority
             IsCompleted = false;
+            Notes = notes;
         }
 
         public void Update(string newTitle, string newDescription)
